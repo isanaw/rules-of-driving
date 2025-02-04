@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ten Basic Rules of Driving</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        #form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+           ;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        #title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        #buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        #buttons-container button {
+            flex: 1 1 calc(50% - 10px);
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        #buttons-container button:hover {
+            background-color: #0056b3;
+        }
+        #clear-button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #dc3545;
+            color: #fff;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        #clear-button:hover {
+            background-color: #c82333;
+        }
+        #rule-output {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none; /* Prevent manual resizing */
+            overflow: hidden; /* Hide scrollbars */
+        }
+        @media (min-width: 600px) {
+            #buttons-container button {
+                flex: 1 1 calc(20% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <div id="title">Ten Basic Rules of Driving</div>
+        <form>
+            <div id="buttons-container">
+                <!-- Buttons labeled 1 to 10 -->
+                <button type="button" onclick="displayRule(1)">1</button>
+                <button type="button" onclick="displayRule(2)">2</button>
+                <button type="button" onclick="displayRule(3)">3</button>
+                <button type="button" onclick="displayRule(4)">4</button>
+                <button type="button" onclick="displayRule(5)">5</button>
+                <button type="button" onclick="displayRule(6)">6</button>
+                <button type="button" onclick="displayRule(7)">7</button>
+                <button type="button" onclick="displayRule(8)">8</button>
+                <button type="button" onclick="displayRule(9)">9</button>
+                <button type="button" onclick="displayRule(10)">10</button>
+            </div>
+            <!-- Clear button -->
+            <button type="button" id="clear-button" onclick="clearRule()">Clear</button>
+            <!-- Textarea to display the rule -->
+            <textarea id="rule-output" readonly></textarea>
+        </form>
+    </div>
+    
+    <script>
+        // Array of driving rules
+        const drivingRules = [
+            "1: Know the Highway Code very well and put it into practice.",
+            "2: Concentrate all the time on your driving to avoid accidents.",
+            "3: Interpret the traffic situation correctly before you act.",
+            "4: Exercise patience and 'hang back' when necessary.",
+            "5: Drive with care and give courtesy to other road users.",
+            "6: Adapt your speed according to the road and traffic conditions and never exceed the speed limit.",
+            "7: Develop your car sense and reduce wear and tear.",
+            "8: Use your horn considerately and give proper signals.",
+            "9: Be sure your car is roadworthy and know its limitations.",
+            "10: Perfect your roadcraft and acknowledge courtesies shown to you by other road users."
+        ];
+        // Function to display the rule in the textarea
+        function displayRule(ruleNumber) {
+            const ruleOutput = document.getElementById("rule-output");
+            ruleOutput.value = drivingRules[ruleNumber - 1];
+            adjustTextareaHeight(ruleOutput);
+        }
+        // Function to clear the textarea
+        function clearRule() {
+            const ruleOutput = document.getElementById("rule-output");
+            ruleOutput.value = '';
+            adjustTextareaHeight(ruleOutput);
+        }
+        // Function to adjust the height of the textarea
+        function adjustTextareaHeight(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>
